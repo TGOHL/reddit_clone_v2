@@ -19,10 +19,10 @@ class AppThemes {
 
   static const Color gray = Color(0xFFA0A0A0);
   static const Color whiteLight = Color(0xFFECECEC);
+  static Color lighGrey = Colors.grey.shade900;
 
   static const Color fontMain = Color(0xFF1C2C56);
   static const Color fontSecondary = Color(0xFF77809A);
-
 
   static const List<Color> mainGradient = [mainLight, main];
   static const List<Color> secondaryGradient = [secondaryLight, secondaryDark];
@@ -42,14 +42,15 @@ class AppThemes {
         ),
         textTheme: const TextTheme(
           bodyMedium: TextStyle(
-            color: Colors.black,
+            color: Colors.white,
             fontFamily: fontFamily,
             fontSize: 14,
           ),
-          titleLarge: TextStyle(color: fontSecondary, fontFamily: fontFamily),
-          titleMedium: TextStyle(color: Colors.black, fontFamily: fontFamily),
-          titleSmall: TextStyle(color: fontSecondary, fontFamily: fontFamily),
+          titleLarge: TextStyle(color: Colors.white, fontFamily: fontFamily),
+          titleMedium: TextStyle(color: Colors.white, fontFamily: fontFamily),
+          titleSmall: TextStyle(color: Colors.white, fontFamily: fontFamily),
         ),
+        iconTheme: const IconThemeData(color: Colors.white),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       );
 

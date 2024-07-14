@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../screens/splash/home_layout.dart';
+import '../../screens/home/home_layout.dart';
 
 class AppRouter {
   static Map<String, Widget Function(dynamic)> router() {

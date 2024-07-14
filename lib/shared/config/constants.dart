@@ -1,5 +1,0 @@
-
-//enum TABLE_SHOWN_SCREEN{STANDINGS,TEAMDETAILS}
-
-//const String NON_TAGED_IMAGE = 'Non Taged';
-
