@@ -7,6 +7,8 @@ class HomeInitial extends HomeState {}
 
 class HomeInitializedState extends HomeState {}
 
+class HomeScrollEndState extends HomeState {}
+
 class HomeResizeState extends HomeState {}
 
 class HomeAdjustedState extends HomeState {}

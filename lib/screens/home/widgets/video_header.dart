@@ -40,7 +40,7 @@ class HomeVideoHeader extends StatelessWidget {
                       fontWeight: FontWeight.w400,
                     ),
                   ),
-                  const Text("MechanicalKeyboards"),
+                  Text(cubit.post.reddit),
                 ],
               ),
               IconButton(

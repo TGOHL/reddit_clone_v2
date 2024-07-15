@@ -1,1 +1,13 @@
-{}
+{
+    "add_comment":"Add a comment",
+    "auto_moderator":"AutoModerator",
+    "mod":"MOD",
+    "points":"points",
+    "best_comments":"BEST COMMENTS",
+    "promoted":"Promoted",
+    "learn_more":"Learn More",
+    "reply":"Reply",
+    "replys":"Replys",
+    "op":"OP",
+    "more":"more"
+}

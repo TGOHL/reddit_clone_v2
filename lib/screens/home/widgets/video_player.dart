@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reddit_clone/screens/home/cubit/home_cubit.dart';
+import 'package:reddit_clone/shared/config/styles.dart';
 import 'package:reddit_clone/shared/widgets/time_player.dart';
 
 class HomeVideoPlayer extends StatelessWidget {
@@ -24,11 +25,14 @@ class HomeVideoPlayer extends StatelessWidget {
                 children: [
                   const SizedBox(width: 10),
                   CircleAvatar(
-                    radius: 10.w,
+                    radius: 12.w,
                     backgroundImage: AssetImage(cubit.auther.imageUrl),
                   ),
                   const SizedBox(width: 6),
-                  Text(cubit.auther.name),
+                  Text(
+                    'u/${cubit.auther.name}',
+                    style: AppStyles.h3TextStyle,
+                  ),
                 ],
               ),
             ),
@@ -36,7 +40,10 @@ class HomeVideoPlayer extends StatelessWidget {
               visible: cubit.stretchedController.isFullScreen,
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(12, 12, 80, 12),
-                child: Text(cubit.post.content),
+                child: Text(
+                  cubit.post.content,
+                  style: AppStyles.h3TextStyle,
+                ),
               ),
             ),
             VideoTimePlayer(

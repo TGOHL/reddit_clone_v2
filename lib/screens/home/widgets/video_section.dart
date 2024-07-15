@@ -44,7 +44,7 @@ class HomeVideoSection extends StatelessWidget {
             left: 0,
             right: 0,
             child: Container(
-              padding: EdgeInsets.only(bottom: 8.h),
+              padding: EdgeInsets.only(bottom: 4.h),
               decoration: const BoxDecoration(
                 gradient: LinearGradient(
                   colors: [Colors.black54, Colors.transparent],
@@ -52,10 +52,11 @@ class HomeVideoSection extends StatelessWidget {
                   end: Alignment.topCenter,
                 ),
               ),
-              child: const Column(
+              child: Column(
                 children: [
-                  HomeVideoPlayer(),
-                  HomeVideoInteractions(),
+                  const HomeVideoPlayer(),
+                  const HomeVideoInteractions(),
+                  SizedBox(height: 4.h),
                 ],
               ),
             ),

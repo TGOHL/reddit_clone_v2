@@ -1,15 +1,25 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reddit_clone/screens/home/cubit/home_cubit.dart';
+import 'package:reddit_clone/shared/config/assets.dart';
 import 'package:reddit_clone/shared/config/themes.dart';
 import 'package:reddit_clone/shared/enums/arrow.dart';
 import 'package:reddit_clone/shared/widgets/arrow_group.dart';
 
-class HomeVideoInteractions extends StatelessWidget {
+class HomeVideoInteractions extends StatefulWidget {
   const HomeVideoInteractions({super.key});
+
+  @override
+  State<HomeVideoInteractions> createState() => _HomeVideoInteractionsState();
+}
+
+class _HomeVideoInteractionsState extends State<HomeVideoInteractions> with SingleTickerProviderStateMixin {
+  @override
+  void initState() {
+    context.read<HomeCubit>().stretchedController.setAnimationController(this);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +53,9 @@ class HomeVideoInteractions extends StatelessWidget {
                   Container(
                     decoration: BoxDecoration(border: Border.all(color: AppThemes.lighGrey), borderRadius: BorderRadius.circular(30.w)),
                     child: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        cubit.stretchedController.animateOpen(this);
+                      },
                       icon: Row(
                         mainAxisSize: MainAxisSize.min,
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -51,7 +63,11 @@ class HomeVideoInteractions extends StatelessWidget {
                           SizedBox(
                             width: 4.w,
                           ),
-                          const Icon(Icons.chat_bubble_outline_rounded),
+                          Image.asset(
+                            AppAssets.BUBBLE,
+                            color: AppThemes.fontMain,
+                            width: 24.w,
+                          ),
                           Padding(
                             padding: EdgeInsets.symmetric(
                               horizontal: 6.w,
@@ -71,7 +87,11 @@ class HomeVideoInteractions extends StatelessWidget {
                         padding: EdgeInsets.symmetric(
                           horizontal: 4.w,
                         ),
-                        child: const Icon(Icons.share),
+                        child: Image.asset(
+                          AppAssets.SHARE,
+                          color: AppThemes.fontMain,
+                          width: 24.w,
+                        ),
                       ),
                     ),
                   ),

@@ -8,6 +8,7 @@ class ArrowButton extends StatefulWidget {
   final int size;
   final EdgeInsets? padding;
   final Function() onPressed;
+  final Color color;
 
   const ArrowButton({
     super.key,
@@ -16,6 +17,7 @@ class ArrowButton extends StatefulWidget {
     required this.onPressed,
     this.size = 24,
     this.padding,
+    this.color = Colors.white,
   });
 
   @override
@@ -61,9 +63,9 @@ class _ArrowButtonState extends State<ArrowButton> with SingleTickerProviderStat
   String get arrowAsset {
     String asset = '';
     if (widget.direction == ArrowButtonDirection.UP) {
-      asset = selected ? AppAssets.ASSET_ARROW_UP_SOLID : AppAssets.ASSET_ARROW_UP_OUTLINE;
+      asset = selected ? AppAssets.ARROW_UP_SOLID : AppAssets.ARROW_UP_OUTLINE;
     } else {
-      asset = selected ? AppAssets.ASSET_ARROW_DOWN_SOLID : AppAssets.ASSET_ARROW_DOWN_OUTLINE;
+      asset = selected ? AppAssets.ARROW_DOWN_SOLID : AppAssets.ARROW_DOWN_OUTLINE;
     }
     return asset;
   }
@@ -71,7 +73,7 @@ class _ArrowButtonState extends State<ArrowButton> with SingleTickerProviderStat
   Color get assetColor {
     Color color;
     if (!selected) {
-      color = Colors.white;
+      color = widget.color;
     } else if (widget.direction == ArrowButtonDirection.UP) {
       color = Colors.red;
     } else {

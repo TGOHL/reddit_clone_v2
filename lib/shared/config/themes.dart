@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 class AppThemes {
   static const String fontFamily = 'Lato';
 
-  static const Color main = Color(0xFF141416);
-  static const Color mainDark = Color.fromARGB(255, 10, 10, 10);
-  static const Color mainLight = Color.fromARGB(255, 29, 29, 36);
-  static const Color scaffold = Color(0x44000000);
+  static const Color main = Color.fromARGB(255, 18, 20, 24);
+  static const Color mainDark = Color(0xFF0C0A0D);
+  static const Color mainLight = Color.fromARGB(255, 25, 28, 32);
+  static const Color scaffold = Color(0xFF000000);
 
   static const Color secondaryLight = Color(0xFFEB8729);
   static const Color secondaryDark = Color(0xFFD0491C);
@@ -21,8 +21,8 @@ class AppThemes {
   static const Color whiteLight = Color(0xFFECECEC);
   static Color lighGrey = Colors.grey.shade900;
 
-  static const Color fontMain = Color(0xFF1C2C56);
-  static const Color fontSecondary = Color(0xFF77809A);
+  static const Color fontMain = Color(0xFFD8D8D8);
+  static const Color fontSecondary = Color(0xFF929292);
 
   static const List<Color> mainGradient = [mainLight, main];
   static const List<Color> secondaryGradient = [secondaryLight, secondaryDark];
@@ -42,15 +42,15 @@ class AppThemes {
         ),
         textTheme: const TextTheme(
           bodyMedium: TextStyle(
-            color: Colors.white,
+            color: fontMain,
             fontFamily: fontFamily,
             fontSize: 14,
           ),
-          titleLarge: TextStyle(color: Colors.white, fontFamily: fontFamily),
-          titleMedium: TextStyle(color: Colors.white, fontFamily: fontFamily),
-          titleSmall: TextStyle(color: Colors.white, fontFamily: fontFamily),
+          titleLarge: TextStyle(color: fontMain, fontFamily: fontFamily),
+          titleMedium: TextStyle(color: fontMain, fontFamily: fontFamily),
+          titleSmall: TextStyle(color: fontMain, fontFamily: fontFamily),
         ),
-        iconTheme: const IconThemeData(color: Colors.white),
+        iconTheme: const IconThemeData(color: fontMain),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       );
 

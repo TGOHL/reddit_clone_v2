@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reddit_clone/screens/home/widgets/comments_section.dart';
 import 'package:reddit_clone/screens/home/widgets/video_section.dart';
+import 'package:reddit_clone/shared/config/themes.dart';
 import 'package:reddit_clone/shared/helpers/toast_helper.dart';
 import 'package:reddit_clone/shared/widgets/stretched_container.dart';
 

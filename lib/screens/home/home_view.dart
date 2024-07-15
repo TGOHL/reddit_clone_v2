@@ -5,20 +5,25 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: BlocBuilder<HomeCubit, HomeState>(
-        buildWhen: (_, current) {
-          return current is HomeInitializedState;
-        },
-        builder: (context, state) {
-          final cubit = context.read<HomeCubit>();
-          if (!cubit.isInitialized) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-          return SafeArea(
+    return BlocBuilder<HomeCubit, HomeState>(
+      buildWhen: (_, current) {
+        return current is HomeInitializedState;
+      },
+      builder: (context, state) {
+        final cubit = context.read<HomeCubit>();
+        if (!cubit.isInitialized) {
+          return const Scaffold(
+            resizeToAvoidBottomInset: false,
+            body: Center(
+              child: CircularProgressIndicator(
+                color: AppThemes.fontMain,
+              ),
+            ),
+          );
+        }
+        return Scaffold(
+          resizeToAvoidBottomInset: context.watch<HomeCubit>().stretchedController.ratio == 0,
+          body: SafeArea(
             child: StretchedContainer(
               controller: cubit.stretchedController,
               fillChild: const HomeCommentsSection(),
@@ -31,9 +36,9 @@ class HomeView extends StatelessWidget {
               },
               child: const HomeVideoSection(),
             ),
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 }

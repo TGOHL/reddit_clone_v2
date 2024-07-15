@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:reddit_clone/shared/config/styles.dart';
 import 'package:reddit_clone/shared/config/themes.dart';
 import 'package:reddit_clone/shared/enums/arrow.dart';
 import 'arrow_button.dart';
@@ -10,6 +11,7 @@ class ArrowGroup extends StatefulWidget {
   final ArrowButtonSelected? selectedValue;
   final Function(int delta) onChange;
   final bool hasBorders;
+  final Color fontColor;
   const ArrowGroup({
     super.key,
     this.selectedValue,
@@ -17,6 +19,7 @@ class ArrowGroup extends StatefulWidget {
     required this.onChange,
     required this.likesCount,
     this.hasBorders = false,
+    this.fontColor = Colors.white,
   });
 
   @override
@@ -35,7 +38,7 @@ class _ArrowGroupState extends State<ArrowGroup> {
   Color get assetColor {
     Color color;
     if (selectedValue == null) {
-      color = Colors.white;
+      color = widget.fontColor;
     } else if (selectedValue == ArrowButtonSelected.UP) {
       color = Colors.red;
     } else {
@@ -55,6 +58,7 @@ class _ArrowGroupState extends State<ArrowGroup> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           ArrowButton(
+            color: widget.fontColor,
             direction: ArrowButtonDirection.UP,
             selected: selectedValue == ArrowButtonSelected.UP,
             onPressed: () {
@@ -82,11 +86,12 @@ class _ArrowGroupState extends State<ArrowGroup> {
               fit: BoxFit.scaleDown,
               child: Text(
                 '$count',
-                style: TextStyle(color: assetColor),
+                style: AppStyles.h3TextStyle.copyWith(color: assetColor),
               ),
             ),
           ),
           ArrowButton(
+            color: widget.fontColor,
             direction: ArrowButtonDirection.DOWN,
             selected: selectedValue == ArrowButtonSelected.DOWN,
             onPressed: () {
@@ -117,6 +122,7 @@ class _ArrowGroupState extends State<ArrowGroup> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           ArrowButton(
+            color: widget.fontColor,
             direction: ArrowButtonDirection.UP,
             selected: selectedValue == ArrowButtonSelected.UP,
             padding: widget.hasBorders ? EdgeInsets.symmetric(vertical: 6.w, horizontal: 8.w) : null,
@@ -141,10 +147,12 @@ class _ArrowGroupState extends State<ArrowGroup> {
           Container(
             alignment: Alignment.center,
             margin: EdgeInsets.symmetric(vertical: 10.h),
-            padding: EdgeInsets.only(
-              left: selectedValue == ArrowButtonSelected.DOWN ? 8.w : 0.w,
-              right: selectedValue != ArrowButtonSelected.DOWN ? 8.w : 0.w,
-            ),
+            padding: !widget.hasBorders
+                ? EdgeInsets.symmetric(horizontal: 8.w)
+                : EdgeInsets.only(
+                    left: selectedValue == ArrowButtonSelected.DOWN ? 8.w : 0.w,
+                    right: selectedValue != ArrowButtonSelected.DOWN ? 8.w : 0.w,
+                  ),
             decoration: BoxDecoration(
               border: !widget.hasBorders
                   ? null
@@ -153,15 +161,13 @@ class _ArrowGroupState extends State<ArrowGroup> {
                       end: selectedValue != ArrowButtonSelected.DOWN ? BorderSide(width: 1, color: borderColor) : BorderSide.none,
                     ),
             ),
-            child: FittedBox(
-              fit: BoxFit.scaleDown,
-              child: Text(
-                '$count',
-                style: TextStyle(color: assetColor),
-              ),
+            child: Text(
+              '$count',
+              style: AppStyles.h3TextStyle.copyWith(color: assetColor),
             ),
           ),
           ArrowButton(
+            color: widget.fontColor,
             direction: ArrowButtonDirection.DOWN,
             selected: selectedValue == ArrowButtonSelected.DOWN,
             padding: widget.hasBorders ? EdgeInsets.symmetric(vertical: 6.w, horizontal: 8.w) : null,

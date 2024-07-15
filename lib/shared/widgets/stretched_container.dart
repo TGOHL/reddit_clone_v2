@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_final_fields
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 class StretchedContainer extends StatefulWidget {
@@ -31,6 +33,12 @@ class _StretchedContainerState extends State<StretchedContainer> {
     super.initState();
 
     height = widget.controller.startMinimized ? widget.controller.minimum : widget.controller.maximum;
+    widget.controller.onAnimate.stream.listen((val) {
+      setState(() {
+        height = val;
+        widget.onAdjust?.call(widget.controller);
+      });
+    });
     widget.controller._height = height;
   }
 
@@ -135,6 +143,8 @@ class StretchedController {
   final double maximum;
   final bool startMinimized;
   final Function(double newHeight)? onHeightChanged;
+  final StreamController<double> onAnimate = StreamController<double>();
+  late AnimationController _controller;
   double _height = 0.0;
   bool _isFullScreen = true;
 
@@ -161,4 +171,35 @@ class StretchedController {
 
   /// this is (ONE) when fully minimized and (ZERO) when fully extended
   double get ratioReversed => 1.0 - ratio;
+
+  void setAnimationController(TickerProvider context) {
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 200),
+      vsync: context,
+    );
+  }
+
+  void animateOpen(TickerProvider context) async {
+    _controller.reset();
+
+    Animation<double> animation = Tween<double>(begin: maximum, end: minimum).animate(_controller);
+    animation.addListener(() {
+      _height = animation.value;
+      onAnimate.add(animation.value);
+    });
+    _controller.forward().then((value) {
+      _height = minimum;
+      _isFullScreen = false;
+      onAnimate.add(_height);
+    });
+
+    // while (_height > minimum) {
+    //   _height -= 1;
+    //   onAnimate.add(_height);
+    //   await Future.delayed(const Duration(microseconds: 10));
+    // }
+    // _height = minimum;
+    // _isFullScreen = false;
+    // onAnimate.add(_height);
+  }
 }

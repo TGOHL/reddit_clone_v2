@@ -49,6 +49,116 @@ class S {
   static S? maybeOf(BuildContext context) {
     return Localizations.of<S>(context, S);
   }
+
+  /// `Add a comment`
+  String get add_comment {
+    return Intl.message(
+      'Add a comment',
+      name: 'add_comment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `AutoModerator`
+  String get auto_moderator {
+    return Intl.message(
+      'AutoModerator',
+      name: 'auto_moderator',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `MOD`
+  String get mod {
+    return Intl.message(
+      'MOD',
+      name: 'mod',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `points`
+  String get points {
+    return Intl.message(
+      'points',
+      name: 'points',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `BEST COMMENTS`
+  String get best_comments {
+    return Intl.message(
+      'BEST COMMENTS',
+      name: 'best_comments',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Promoted`
+  String get promoted {
+    return Intl.message(
+      'Promoted',
+      name: 'promoted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Learn More`
+  String get learn_more {
+    return Intl.message(
+      'Learn More',
+      name: 'learn_more',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reply`
+  String get reply {
+    return Intl.message(
+      'Reply',
+      name: 'reply',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Replys`
+  String get replys {
+    return Intl.message(
+      'Replys',
+      name: 'replys',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `OP`
+  String get op {
+    return Intl.message(
+      'OP',
+      name: 'op',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `more`
+  String get more {
+    return Intl.message(
+      'more',
+      name: 'more',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

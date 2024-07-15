@@ -5,18 +5,23 @@ class Line extends StatelessWidget {
   final double height;
   final double width;
   final Color? color;
+  final bool roundConrners;
   const Line({
-    Key? key,
+    super.key,
     this.height = 1,
     this.width = 130,
     this.color,
-  }) : super(key: key);
+    this.roundConrners = false,
+  });
   @override
   Widget build(BuildContext context) {
     return Container(
       width: width.w,
       height: height.h,
-      color: color ?? Colors.grey[600],
+      decoration: BoxDecoration(
+        borderRadius: roundConrners ? BorderRadius.circular(width.w) : null,
+        color: color ?? Colors.grey[600],
+      ),
     );
   }
 }
