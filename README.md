@@ -59,12 +59,12 @@ The Reddit Clone App is a feature-rich application designed to emulate the core 
 ## Screenshots
 - Video Playback.
 <p float="left">
-  <img src="screenshots/Video_Player.png" width="250" />
+  <img src="screenshots/Video_Player.jpg" width="250" />
 </p>
 
 - Comments Section.
 <p float="left">
-  <img src="screenshots/Comments.png" width="250" />
+  <img src="screenshots/Comments.jpg" width="250" />
 </p>
 
 ## To See The App In-Action
