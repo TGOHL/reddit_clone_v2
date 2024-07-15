@@ -58,18 +58,18 @@ The Reddit Clone App is a feature-rich application designed to emulate the core 
 
 ## Screenshots
 - Video Playback.
-<p float="center">
+<p float="left">
   <img src="screenshots/Video_Player.png" width="250" />
 </p>
 
 - Comments Section.
-<p float="center">
+<p float="left">
   <img src="screenshots/Comments.png" width="250" />
 </p>
 
 ## To See The App In-Action
-- Satch the demo video [here](https://github.com/TGOHL/reddit_clone_v2/tree/main/output/demo.mp4).
-- Try the debuggable APK Version [here](https://github.com/TGOHL/reddit_clone_v2/tree/main/output/app-release.apk).
+- Satch the demo video [here](https://github.com/TGOHL/reddit_clone_v2/tree/main/output).
+- Try the debuggable APK Version [here](https://github.com/TGOHL/reddit_clone_v2/tree/main/output).
 
 ## Conclusion
 The Reddit Clone App is designed to provide a robust and interactive experience similar to Reddit. With its comprehensive feature set and responsive design, it aims to deliver a seamless user experience across various devices.
